@@ -49,24 +49,24 @@ Sinefunc, Inc.
 
 (HAML up ahead!)
 
-Checkboxes should be done with a hidden field before it, and have an ID.
- 
-   %label{for: 'my_id'}
-     %input{type: 'hidden', name: 'input_name', value: '0'}/
-     %input#my_id{type: 'checkbox', name: 'input_name', value: '1'}/
-     %span Send notifications
+- Checkboxes should be done with a hidden field before it, and have an ID.
 
-Use `<button>` with `<span>` instead of `<input type='button'>`.
+      %label{for: 'my_id'}
+        %input{type: 'hidden', name: 'input_name', value: '0'}/
+        %input#my_id{type: 'checkbox', name: 'input_name', value: '1'}/
+        %span Send notifications
 
-    %button{type: 'submit'}
-      %span Go
+- Use `<button>` with `<span>` instead of `<input type='button'>`.
 
-`<input>` should be inside `<label>` if possible, with a `span`.
- Same goes for `textarea`s and `select`s.
+      %button{type: 'submit'}
+        %span Go
 
-    %label
-      %span Email:
-      %input{type: 'text', name: 'email'}/
+- `<input>` should be inside `<label>` if possible, with a `span`.
+  Same goes for `textarea`s and `select`s.
+
+      %label
+        %span Email:
+        %input{type: 'text', name: 'email'}/
 
 
 ## Filenames
