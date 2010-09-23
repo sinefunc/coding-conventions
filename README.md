@@ -37,23 +37,36 @@ Sinefunc, Inc.
    eg: `<input name='person[first_name]' id='person_first_name'>`. IDs are often
    only necessary for checkboxes.
 
- - Checkboxes should be done with a hidden field before it, and have
-   an ID.
- 
-     <label for='my_id'>
-       <input type='hidden' name='input_name' value='0' />
-       <input type='checkbox' name='input_name' id='my_id' value='1' />
-     </label>
-
  - Avoid stray inputs without labels.
 
  - IDs should never contain brackets.
 
- - Use `<button>` instead of `<input type='button'>`.
-
- - `<input>` should be inside `<label>` if possible. Same goes for `textarea`s and `select`s.
 
  - Use `<h3 class='legend'>` instead of `<legend>`.
+
+
+## Form markup
+
+(HAML up ahead!)
+
+Checkboxes should be done with a hidden field before it, and have an ID.
+ 
+   %label{for: 'my_id'}
+     %input{type: 'hidden', name: 'input_name', value: '0'}/
+     %input#my_id{type: 'checkbox', name: 'input_name', value: '1'}/
+     %span Send notifications
+
+Use `<button>` with `<span>` instead of `<input type='button'>`.
+
+    %button{type: 'submit'}
+      %span Go
+
+`<input>` should be inside `<label>` if possible, with a `span`.
+ Same goes for `textarea`s and `select`s.
+
+    %label
+      %span Email:
+      %input{type: 'text', name: 'email'}/
 
 
 ## Filenames
@@ -65,7 +78,7 @@ Sinefunc, Inc.
 
  - Views for resources should be named this way:
 
-   - `id.haml`    - For `/person/1'
+   - `id.haml`    - For `/person/1`
    - `edit.haml`  - For `/person/1/edit`, uses the partial below
    - `form.haml`  - The form partial
    - `list.haml`  - For `/people`
@@ -73,10 +86,12 @@ Sinefunc, Inc.
 
 ## Localizations
 
+This only applies to projects that use the `i18n` Ruby gem.
+
  - Localize every string.
 
  - The first namespace defines the section the string is for. For instance,
-   `blog_post.create: "Create"` means it's the string called `create` for
+   `blog_post.create` ("Create") means it's the string called `create` for
    the `blog_post` section of the application.
 
  - If a string you want is already defined (and is in the same namespace),
@@ -100,6 +115,12 @@ Sinefunc, Inc.
    using `.live` or `.livequery`.
 
  - Use the jQuery include wrapper.
+
+ - Use snakeCase for function and variable names. (eg: `createContact()`)
+
+ - Don't forget the `var` on local variables.
+
+ - Prefix jQuery object variables with `$`. (eg: `var $form = $("#my_form")`)
 
  - App-specific should be prefixed, eg: `lp.advanced_search.js`.
 
