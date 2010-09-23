@@ -61,7 +61,7 @@ Sinefunc, Inc.
  - Use underscores. (eg: `link_person.haml`, `comment_foo.rb`)
 
  - (Ruby/Python) if your file contains one class, underscorize it as the
-   filename. (eg: `ContactDetail` becomes `contact_details.rb`)
+   filename. (eg: `ContactDetail` becomes `contact_detail.rb`)
 
  - Views for resources should be named this way:
 
