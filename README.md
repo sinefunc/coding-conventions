@@ -56,12 +56,12 @@ to change as we figure things out better.
         %input(type='checkbox' name='input_name' value='1' id='my_id'}/
         %span Send notifications
 
-- Use `<button>` with `<span>` instead of `<input type='button'>`.
+- Use a `<button>` with a `<span>` instead of an `<input type='submit'>`.
 
       %button{type: 'submit'}
         %span Go
 
-- Wrap everything in a fieldset.
+- Make sure that fields contained in a fieldset.
 
       %form(method='post')
         %fieldset
@@ -89,7 +89,7 @@ to change as we figure things out better.
 
 ## Filenames
 
- - Use underscores. (eg: `link_person.haml`, `comment_foo.rb`)
+ - Use underscores. (eg: `link_person.haml`, `blog_comment.rb`)
 
  - (Ruby/Python) if your file contains one class, underscorize it as the
    filename. (eg: `ContactDetail` becomes `contact_detail.rb`)
@@ -106,7 +106,7 @@ to change as we figure things out better.
 
 This only applies to projects that use the `i18n` Ruby gem.
 
- - Localize every string.
+ - Localize every string that will be displayed.
 
  - The first namespace defines the section the string is for. For instance,
    `blog_post.create` ("Create") means it's the string called `create` for
@@ -144,7 +144,7 @@ This only applies to projects that use the `i18n` Ruby gem.
 
  - Use the jQuery include wrapper.
 
- - Use snakeCase for function and variable names. (eg: `createContact()`)
+ - Use camelCase for function and variable names. (eg: `createContact()`)
 
  - Don't forget the `var` on local variables.
 
@@ -165,7 +165,8 @@ This only applies to projects that use the `i18n` Ruby gem.
    - App-specific JS's should be loaded last: `lp.*.js`.
 
 (*) It's OK to drop these guidelines for projects that don't use AJAX extensively. Most
-projects do things like in-place reloading, for instance. *
+projects do things like in-place reloading, for instance, which make these guidelines
+necessary.
 
 
 ## Ruby
@@ -175,4 +176,4 @@ projects do things like in-place reloading, for instance. *
 
 ## Python
 
- - Follow PEP8.
+ - Follow [PEP8](http://www.python.org/dev/peps/pep-0008/).
