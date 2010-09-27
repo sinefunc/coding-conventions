@@ -127,8 +127,10 @@ This only applies to projects that use the `i18n` Ruby gem.
 
  - Use `git pull --rebase` instead of just `git pull` if possible.
 
- - Commit messages should be command sentences.
-   eg: "Create new forms for updating comments."
+ - Commit messages should be command sentences. They also should not be in the past tense.
+
+   Good: "Create new forms for updating comments."  
+   Not:  "Created new forms."
 
 
 ## JavaScript
@@ -162,7 +164,7 @@ This only applies to projects that use the `i18n` Ruby gem.
 
    - App-specific JS's should be loaded last: `lp.*.js`.
 
-* *It's OK to drop this for projects that don't use AJAX extensively. Most
+(*) It's OK to drop these guidelines for projects that don't use AJAX extensively. Most
 projects do things like in-place reloading, for instance. *
 
 
