@@ -1,8 +1,9 @@
 Sinefunc coding conventions
 ===========================
 
-These are coding conventions we use internally in the joyful world of
-Sinefunc, Inc.
+These are a list of conventions we use internally in the joyful world of
+Sinefunc, Inc. Note that this is a work in progress draft and is subject
+to change as we figure things out better.
 
  - [Sinefunc.com](http://sinefunc.com)
  - [github.com/sinefunc](http://github.com/sinefunc)
@@ -41,7 +42,6 @@ Sinefunc, Inc.
 
  - IDs should never contain brackets.
 
-
  - Use `<h3 class='legend'>` instead of `<legend>`.
 
 
@@ -51,9 +51,9 @@ Sinefunc, Inc.
 
 - Checkboxes should be done with a hidden field before it, and have an ID.
 
-      %label{for: 'my_id'}
-        %input{type: 'hidden', name: 'input_name', value: '0'}/
-        %input#my_id{type: 'checkbox', name: 'input_name', value: '1'}/
+      %label(for='my_id')
+        %input(type='hidden'   name='input_name' value='0')/
+        %input(type='checkbox' name='input_name' value='1' id='my_id'}/
         %span Send notifications
 
 - Use `<button>` with `<span>` instead of `<input type='button'>`.
@@ -61,12 +61,30 @@ Sinefunc, Inc.
       %button{type: 'submit'}
         %span Go
 
+- Wrap everything in a fieldset.
+
+      %form(method='post')
+        %fieldset
+          / Your labels/inputs here
+
 - `<input>` should be inside `<label>` if possible, with a `span`.
   Same goes for `textarea`s and `select`s.
 
       %label
         %span Email:
         %input{type: 'text', name: 'email'}/
+
+- For an input field that's a group of input fields, use:
+
+      %fieldset.group
+        %span Format:
+        %label
+          %input(type='radio')
+          %span Plain text
+        %label
+          %input(type='radio')
+          %span HTML
+      // Still in debate
 
 
 ## Filenames
@@ -105,14 +123,22 @@ This only applies to projects that use the `i18n` Ruby gem.
    deprecate `blog_post.comments`.
 
 
+## Git
+
+ - Use `git pull --rebase` instead of just `git pull` if possible.
+
+ - Commit messages should be command sentences.
+   eg: "Create new forms for updating comments."
+
+
 ## JavaScript
 
  - 2 spaces indent.
 
- - Always use `.live` and `.livequery`.
+ - Always use `.live` and `.livequery`. *
 
  - Don't use `$(function() { });` unless you really have to. Consider
-   using `.live` or `.livequery`.
+   using `.live` or `.livequery`. *
 
  - Use the jQuery include wrapper.
 
@@ -122,9 +148,29 @@ This only applies to projects that use the `i18n` Ruby gem.
 
  - Prefix jQuery object variables with `$`. (eg: `var $form = $("#my_form")`)
 
- - App-specific should be prefixed, eg: `lp.advanced_search.js`.
+ - General purpose libraries made for the project should be prefixed with `lib`,
+   eg: `lib.remoting.js`.
+
+ - App-specific filenames should be prefixed by an acronym of the project,
+   eg: `lp.advanced_search.js`.
+
+ - The load order should be this way:
+
+   - Vendor libraries should be loaded first, eg: `jquery.js`
+
+   - App libraries should be loaded next: `lib.*.js`.
+
+   - App-specific JS's should be loaded last: `lp.*.js`.
+
+* *It's OK to drop this for projects that don't use AJAX extensively. Most
+projects do things like in-place reloading, for instance. *
 
 
 ## Ruby
 
  - Follow [Neukichuren's guide](http://github.com/chneukirchen/styleguide/raw/master/RUBY-STYLE).
+
+
+## Python
+
+ - Follow PEP8.
